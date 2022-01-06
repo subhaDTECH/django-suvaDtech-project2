@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+<h2>All POST</h2>
+<hr>
+
+    {% for pst in post %}
+  <div class="card bg-info mt-2">
+  <div class='card-title'>
+   {{pst.title}}
+  </div>
+  <div class='card-body'>
+  {{pst.desc}}
+  
+  </div>
+  
+  
+  </div>
+  
+  
+  
+  {% endfor %}
+
+{% endblock content %}

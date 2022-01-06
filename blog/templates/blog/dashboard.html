@@ -1,0 +1,57 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h1>dashboard</h1>
+<div class="msg_div">
+ {% comment %} // code for massage success  {% endcomment %}
+ {% if messages %}
+  {% for mess in messages %}
+  <p {% if mess.tags %} class="alert alert-{{mess.tags}}" {% endif %}>{{mess}}</p>
+  {% endfor %}
+  
+  
+  {% endif %}
+
+</div>
+{% comment %} end all post in table  {% endcomment %}
+ <div class="col-md-10 mx-auto">
+   <h1>All post</h1>
+
+<table class="table bg-light">
+<a href="{% url 'addpost' %}" class="btn btn-success mb-3">ADD POST {{nm}}</a>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">DESC</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  {% for pst in post %}
+
+  <tbody>
+    <tr>
+      <th scope="row">{{pst.id}}</th>
+      <td>{{pst.title}}</td>
+      <td>{{pst.desc}}</td>
+      <td>
+       <a href="{% url 'updatepost' pst.id  %}" class="btn btn-warning ">Edit</a>
+       <form action="{% url 'deletepost' pst.id  %}" method="POST">
+       {% csrf_token %}
+       <input type="submit" value="Delete" class="btn btn-danger mt-2">
+       </form>
+      
+      </td>
+    </tr>
+    </tbody>
+  
+  
+  {% endfor %}
+ 
+ </div>
+
+
+
+
+
+{% endblock content %}

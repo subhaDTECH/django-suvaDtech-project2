@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h2>contact page</h2>
+<hr>
+<div class="col-md-10 mx-auto">
+    <div class="mt-5">
+    <form autocomplete="off">
+     <div class="form-group">
+    <label for="exampleInputPassword1">Username</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+  </div>
+ 
+  <div class="form-group">
+    <label for="exampleInputPassword1">mobile no</label>
+    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter your mobile no">
+  </div>
+   <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    </div>
+
+</div>
+
+{% endblock content %}

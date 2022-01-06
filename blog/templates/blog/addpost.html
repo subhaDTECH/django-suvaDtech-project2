@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+ <h2>Add post</h2>
+ <hr>
+ {% comment %} massage success code  {% endcomment %}
+  {% if messages %}
+  {% for mess in messages %}
+  <p {% if mess.tags %} class="alert alert-{{mess.tags}}" {% endif %}>{{mess}}</p>
+  {% endfor %}
+  
+  
+  {% endif %}
+  {% comment %} end fo massage success code  {% endcomment %}
+  <div class="col-md-10 mx-auto mt-5">
+  <form action="" method="post">
+  {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Add" class="btn btn-success">
+    
+  </form>
+  <a href="{% url 'dashboard' %}" class="btn btn-info mt-2">Back</a>
+  
+  
+  </div>
+{% endblock content %}
